@@ -1,0 +1,2043 @@
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #334155;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION (DESKTOP)
+   ========================================================================== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 15px;
+    background-color:  #059669;
+    color: white;
+    display: flex;
+    justify-items: center;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    border-radius: 5px;
+    align-items: center;
+
+}
+
+
+
+.logo-accent {
+    color: #059669;
+}
+
+.pay{
+    color: white;
+}
+
+
+
+/* Desktop Menu Layout */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 24px;
+}
+
+
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    /* color: #cbd5e1; */
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+
+
+.nav-link:hover, .nav-link.active {
+    color: #059669; 
+    /* font-size: 18px; */
+    
+}
+
+/* Dropdown Logic (Desktop) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1e293b;
+    min-width: 200px;
+    border-radius: 6px;
+    padding: 10px 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* CTA Button */
+.btn-primary {
+    background-color: #059669;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #047857;
+}
+
+
+
+
+
+/* Hide Hamburger Element by default */
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+
+
+/* ==========================================================================
+   3. RESPONSIVE DESIGN (TABLETS & MOBILE SCREENS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Show Hamburger */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1010;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Transform navigation into a mobile drawer */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen right */
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background-color: #0f172a;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 40px 40px 40px;
+        gap: 30px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        transition: right 0.4s ease-in-out;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+    }
+
+    /* Mobile Dropdowns (Simple list layout) */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: #1e293b;
+        box-shadow: none;
+        margin-top: 10px;
+        padding-left: 15px;
+        display: none; /* Hidden until parent active, or always show on mobile */
+    }
+    
+    /* For simple mobile UX, we keep dropdown items visible nested under headings */
+    .dropdown .dropdown-menu {
+        display: block;
+    }
+
+    .nav-cta {
+        width: 100%;
+        margin-top: auto; /* Push CTA to bottom of screen drawer */
+    }
+
+    .btn-primary {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* CSS Magic: When checkbox is checked, slide out the menu & animate hamburger */
+    .menu-toggle:checked ~ .nav-menu {
+        right: 0;
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    
+}
+
+
+
+/* ************************************************************************ */
+
+
+/* ==========================================================================
+   4. HERO SECTION STYLES
+   ========================================================================== */
+.page-content {
+    margin-top: 75px; /* Creates clearance so the sticky header doesn't cover content */
+}
+
+.hero {
+    /* background-color: #F5F7FA; */
+     background: radial-gradient(circle at top right, #1e293b, #0f172a);  
+    color: #ffffff;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Splits layout into 2 distinct functional zones */
+    gap: 60px;
+    align-items: center;
+}
+
+/* Text Content Area */
+.hero-text .hero-badge {
+    display: inline-block;
+    background-color: rgba(10, 217, 151, 0.272);
+    color: #34d399;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    border: 1px solid rgba(5, 150, 105, 0.3);
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 36px;
+    max-width: 580px;
+    line-height: 1.6;
+}
+
+/* Hero Action Buttons */
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 2px solid #334155;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: #059669;
+    background-color: rgba(5, 150, 105, 0.05);
+}
+
+/* Trust Indicators Layout */
+.hero-trust {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid #1e293b;
+    padding-top: 24px;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-item strong {
+    font-size: 1.5rem;
+    color: #059669;
+    font-weight: 700;
+}
+
+.trust-item span {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* CSS Phone UI Mockup Graphic */
+.hero-graphic {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.phone-mockup {
+    width: 280px;
+    height: 460px;
+    background-color: #020617;
+    border: 5px solid #334155;
+    border-radius: 36px;
+    padding: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.phone-screen {
+    background-color: #f8fafc;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 16px;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.app-avatar {
+    width: 28px;
+    height: 28px;
+    background-color: #cbd5e1;
+    border-radius: 50%;
+}
+
+.app-balance-card {
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.card-amount {
+    font-size: 1.4rem;
+    color: #34d399;
+}
+
+.card-number {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-top: 8px;
+}
+
+.app-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.feature-pill {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.app-recent {
+    margin-top: auto;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.loan-status {
+    color: #059669;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE HERO DESIGN
+   ========================================================================== */
+@media (max-width: 968px) {
+    .hero-container {
+        grid-template-columns: 1fr; /* Switch to single column for tablets and mobile */
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        margin: 0 auto 32px auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-trust {
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .hero-graphic {
+        display: none; /* Hide complex CSS mockup screen on pure mobile for premium spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.1rem;
+    }
+    
+    .hero-actions .btn-primary, 
+    .hero-actions .btn-secondary {
+        width: 100%; /* Force buttons to stack nicely on phones */
+        text-align: center;
+    }
+}
+
+/* ************************************************************************** */
+
+
+/* ==========================================================================
+   6. INNER PAGE HERO SYSTEM
+   ========================================================================== */
+.inner-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 60px 20px;
+    border-bottom: 4px solid #059669; /* Accent line anchor */
+    color: #ffffff;
+}
+
+/* Optional variation styling to differentiate the business sector */
+.inner-hero.business-variant {
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    border-bottom-color: #34d399;
+}
+
+.inner-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.breadcrumb {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #34d399; /* Primary action palette color */
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.inner-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.inner-hero p {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* Responsive adjustment for inner page headers */
+@media (max-width: 768px) {
+    .inner-hero {
+        padding: 40px 20px;
+    }
+    
+    .inner-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .inner-hero p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* ************************************************************** */
+
+/* ==========================================================================
+   7. CORE UTILITIES & GLOBAL INNER LAYOUTS
+   ========================================================================== */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* --- About Us Elements --- */
+.about-section {
+    background-color: #ffffff;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+.metrics-box-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.metric-card {
+    background-color: #f8fafc;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #059669;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.metric-card h3 {
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.metric-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* --- Security Page Elements --- */
+.security-section {
+    background-color: #f8fafc;
+}
+
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.security-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.security-card:hover {
+    transform: translateY(-5px);
+}
+
+.security-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.security-card h3 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.security-card p {
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* --- Contact Page Form Elements --- */
+.contact-section {
+    background-color: #ffffff;
+}
+
+.contact-form {
+    background-color: #f8fafc;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+}
+
+.contact-form h3, .contact-channels h3 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #334155;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.contact-channels {
+    padding-left: 20px;
+}
+
+.channel-item {
+    margin-bottom: 30px;
+}
+
+.channel-item strong {
+    font-size: 1.1rem;
+    color: #0f172a;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.channel-item p {
+    color: #475569;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE UPDATES FOR SUBPAGES
+   ========================================================================== */
+@media (max-width: 968px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .security-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-channels {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-box-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 24px;
+    }
+}
+
+
+
+/* ******************************************************************* */
+
+
+/* ==========================================================================
+   9. HOMEPAGE FEATURES & SERVICES GRID STYLES
+   ========================================================================== */
+.services-section {
+    background-color: #f8fafc; /* Subtle off-white background to contrast with the dark hero */
+}
+
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px auto;
+}
+
+.section-tagline {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #059669; /* Emerald Primary Tone */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.section-header p {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Flexbox/Grid layout layout container */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Equal columns on desktop */
+    gap: 30px;
+}
+
+/* Individual Feature Card Styling */
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Interaction Effect */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+}
+
+.service-icon-bg {
+    width: 50px;
+    height: 50px;
+    background-color: #f0fdf4; /* Very light tint of green */
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pushes the action link to align perfectly at the bottom */
+}
+
+.service-link {
+    font-size: 0.9rem;
+    color: #059669;
+    font-weight: 600;
+    transition: color 0.2s;
+    display: inline-block;
+}
+
+.service-link:hover {
+    color: #047857;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   10. SERVICES BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Drop to 2 columns on tablets */
+        gap: 24px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* 1 Column fallback for mobile viewports */
+    }
+    
+    .section-header {
+        text-align: left; /* Better visual grid alignment on cramped phones */
+    }
+    
+    .service-card {
+        padding: 25px;
+    }
+}
+
+
+/* ******************************************************* */
+
+
+/* ==========================================================================
+   11. INNER SUB-PAGE MEDIA & TEXT LAYOUTS
+   ========================================================================= */
+.inner-content-section {
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+
+.inner-content-section.alt-bg {
+    background-color: #f8fafc; /* Alternating grid pattern background striping */
+}
+
+/* Image Wrappers and Card Styling */
+.image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.responsive-ui-img {
+    width: 100%;
+    max-width: 540px;
+    height: 380px;
+    object-fit: cover; /* Keeps aspect ratios correct without crushing scale */
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+    border: 1px solid #e2e8f0;
+}
+
+/* Bullet list design elements */
+.benefit-bullet-list {
+    margin-top: 24px;
+}
+
+.benefit-bullet-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 14px;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* Clean emerald list indicators */
+.benefit-bullet-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #059669;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Inline Badging configurations */
+.interest-rate-badge {
+    display: inline-block;
+    margin-top: 24px;
+    background-color: #f0fdf4;
+    color: #166534;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 1px solid #bbf7d0;
+}
+
+.interest-rate-badge strong {
+    color: #059669;
+    font-size: 1.3rem;
+}
+
+/* Feature Pill System */
+.feature-pills-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.pill-item {
+    background-color: #e2e8f0;
+    color: #334155;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   12. INNER CONTENT RESPONSIVE TWEAKS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .responsive-ui-img {
+        height: 300px; /* Reduces container height profile slightly on small tablets */
+    }
+
+    /* CSS Magic: Swaps text and images on mobile so descriptions always stay above visuals */
+    .reverse-desktop {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+}
+
+/* **************************************************************** */
+
+
+/* ==========================================================================
+   13. EXTRA CONTACT MAP & SECURITY COMPLIANCE STYLES
+   ========================================================================== */
+
+/* Map Section Elements */
+.map-section {
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.map-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.map-header h2 {
+    font-size: 1.8rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.map-grid-container {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.map-iframe-wrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #cbd5e1;
+}
+
+/* Forces the embedded map to load cleanly */
+.map-iframe-wrapper iframe {
+    display: block;
+}
+
+.alternate-hubs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hub-card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.hub-card h4 {
+    color: #0f172a;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.hub-card p {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.hub-card span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #059669;
+    background-color: #f0fdf4;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* Compliance Section Elements */
+.compliance-section {
+    background-color: #ffffff;
+}
+
+.compliance-inner-box {
+    background-color: #0f172a; /* Deep contrast dark background container panel */
+    color: #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.compliance-text h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.compliance-text p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.certifications-row-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cert-pill {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 16px 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.cert-pill:hover {
+    border-color: rgba(5, 150, 105, 0.4);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cert-check {
+    font-size: 1.5rem;
+}
+
+.cert-pill strong {
+    font-size: 0.95rem;
+    color: #ffffff;
+    display: block;
+}
+
+.cert-pill p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   14. COMPLIANCE & MAP MOBILE MEDIA QUERY RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .map-grid-container {
+        grid-template-columns: 1fr; /* Stack map layout vertically on tablet viewers */
+    }
+    
+    .compliance-inner-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-header {
+        text-align: left;
+    }
+    
+    .map-iframe-wrapper iframe {
+        height: 300px; /* Shortens vertical scope map container wrapper context on small devices */
+    }
+}
+
+
+/* ************************************************************** */
+
+
+/* ==========================================================================
+   15. HOMEPAGE APP DOWNLOAD BANNER STYLES
+   ========================================================================== */
+.app-banner-section {
+    background-color: #ffffff;
+    padding: 20px 0 60px 0;
+}
+
+.app-banner-box {
+    background: radial-gradient(circle at bottom left, #047857, #0f172a 70%); /* Emerald to deep navy mix */
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15);
+}
+
+.app-banner-content .banner-badge {
+    background-color: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.app-banner-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.app-banner-content p {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 540px;
+}
+
+/* Download Store Buttons Layout */
+.download-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.store-btn {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.store-btn:hover {
+    background-color: #020617;
+    border-color: #059669;
+    transform: translateY(-2px);
+}
+
+.store-icon {
+    font-size: 1.6rem;
+}
+
+.store-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.store-text small {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.store-text strong {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Visual Float Alerts Element Styles */
+.app-banner-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.mini-app-screen {
+    width: 260px;
+    height: 220px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+}
+
+.app-notif-toast {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+    animation: floatAnimation 4s ease-in-out infinite alternate;
+}
+
+.secondary-toast {
+    animation-delay: 2s; /* offsets animation timing for premium effect */
+}
+
+.toast-icon {
+    font-size: 1.3rem;
+    background-color: #f0fdf4;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.app-notif-toast strong {
+    font-size: 0.85rem;
+    display: block;
+    color: #0f172a;
+}
+
+.app-notif-toast p {
+    font-size: 0.75rem;
+    color: #475569;
+    margin: 0;
+}
+
+/* Simple CSS Floating Keyframe Core */
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+}
+
+/* ==========================================================================
+   16. APP DOWNLOAD BANNER RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .app-banner-box {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        text-align: center;
+    }
+    
+    .app-banner-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .download-buttons {
+        justify-content: center;
+    }
+    
+    .app-banner-visual {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-banner-box {
+        padding: 30px 20px;
+    }
+
+    .app-banner-content h2 {
+        font-size: 1.9rem;
+    }
+    
+    .store-btn {
+        width: 100%; /* Badges occupy full row widths on phones */
+        justify-content: center;
+    }
+    
+    .app-banner-visual {
+        display: none; /* Hide UI floating nodes on strict mobile windows to prevent overflow */
+    }
+}
+
+
+/* ********************************************************/
+
+
+/* ==========================================================================
+   17. HOMEPAGE PLATFORM SPOTLIGHT AD STYLES
+   ========================================================================== */
+.spotlight-ad-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+/* Image Core Positioning Layout */
+.spotlight-image-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.spotlight-hero-img {
+    width: 100%;
+    max-width: 540px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
+    border: 1px solid #e2e8f0;
+}
+
+/* Premium Floating Stats Overlay Badge */
+.floating-stat-card {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    background-color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #f1f5f9;
+    animation: bounceSlow 3s ease-in-out infinite alternate;
+}
+
+.floating-stat-card .stat-icon {
+    background-color: #f0fdf4;
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.floating-stat-card h4 {
+    font-size: 0.95rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin: 0;
+}
+
+.floating-stat-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Content Text and Feature Checklist Structure */
+.spotlight-content-block h2 {
+    font-size: 2.4rem;
+    color: #0f172a;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.spotlight-content-block p {
+    color: #475569;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+.spotlight-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.spotlight-feature-item {
+    display: flex;
+    gap: 16px;
+    align-items: start;
+}
+
+.spotlight-feature-item .check-bullet {
+    background-color: #f0fdf4;
+    color: #059669;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.spotlight-feature-item strong {
+    font-size: 1rem;
+    color: #0f172a;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.spotlight-feature-item p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Subtle Floating CSS Keyframe */
+@keyframes bounceSlow {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+/* ==========================================================================
+   18. SPOTLIGHT BREAKPOINTS RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .spotlight-hero-img {
+        height: 360px; /* Slims image container space on tablet layouts */
+    }
+    
+    .spotlight-content-block h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .floating-stat-card {
+        display: none; /* Safely hide the float overlay on tiny phone dimensions to keep clarity */
+    }
+}
+
+/* ********************************* */
+
+/* ==========================================================================
+   19. ABOUT US LEADERSHIP TEAM STYLES
+   ========================================================================== */
+.team-section {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Equal columns across standard desktop sizes */
+    gap: 30px;
+}
+
+.team-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden; /* Clips image corners cleanly inside container */
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px -8px rgba(15, 23, 42, 0.1);
+    border-color: #cbd5e1;
+}
+
+/* Image scaling properties */
+.team-image-box {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    background-color: #cbd5e1;
+}
+
+.team-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents stretching and scales portraits accurately */
+    transition: transform 0.5s ease;
+}
+
+/* Dynamic zoom interaction */
+.team-card:hover .team-profile-pic {
+    transform: scale(1.04);
+}
+
+.team-info {
+    padding: 24px;
+}
+
+.team-info h3 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.team-role {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #059669; /* Primary accent branding emerald green */
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.team-info p {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==========================================================================
+   20. LEADERSHIP RESPONSIVE VIEWPORT BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* Drop layout into 2 items per row for tablet screens */
+        gap: 24px;
+    }
+    
+    .team-image-box {
+        height: 240px; /* Reduces landscape space layout footprint on tablets */
+    }
+}
+
+@media (max-width: 640px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 1 Single profile row block per view context on phones */
+    }
+    
+    .team-card {
+        max-width: 400px;
+        margin: 0 auto; /* Centers the profiles on mobile view */
+    }
+}
+
+
+/* **************************************************************** */
+
+/* ==========================================================================
+   21. CONTACT PAGE FREQUENTLY ASKED QUESTIONS STYLES
+   ========================================================================== */
+.faq-section {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.faq-accordion-container {
+    max-width: 800px; /* Centers the questions within a comfortable reading block */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Base HTML Details Element Style */
+.faq-item {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* The Trigger Header */
+.faq-question {
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none; /* Removes default disclosure triangle arrow in Chrome/Firefox */
+    user-select: none;
+}
+
+/* Removes default disclosure triangle arrow on Safari web views */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question span {
+    font-size: 1.4rem;
+    color: #059669; /* Emerald Primary Branding Token */
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Accent effect */
+.faq-item:hover {
+    border-color: #cbd5e1;
+    background-color: #f1f5f9;
+}
+
+/* CSS Magic: When the accordion box is open, update styles instantly */
+.faq-item[open] {
+    border-color: #059669;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Rotate the open indicator into a minus sign on display toggle */
+.faq-item[open] .faq-question span {
+    transform: rotate(45deg);
+    color: #ef4444; /* Flips color to warning red on open */
+}
+
+/* The Expanding Text Box Container */
+.faq-answer {
+    padding: 0 24px 20px 24px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.faq-answer p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 10px 0 0 0;
+}
+
+/* ==========================================================================
+   22. FAQ ACCORDION MOBILE SCREEN OPTIMIZATION
+   ========================================================================== */
+@media (max-width: 640px) {
+    .faq-question {
+        padding: 16px;
+        font-size: 0.95rem;
+        gap: 12px; /* Adds spatial separation so text doesn't hit the indicator */
+    }
+    
+    .faq-answer {
+        padding: 0 16px 16px 16px;
+    }
+    
+    .faq-answer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* *************************************************** */
+
+
+/* ==========================================================================
+   23. CROSS-PAGE CALL-TO-ACTION STRIP STYLES
+   ========================================================================== */
+.page-cta-strip {
+    background-color: #ffffff;
+    padding: 20px 0 40px 0;
+}
+
+.cta-strip-box {
+    background-color: #059669; /* Vibrant brand Emerald Green */
+    color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.1);
+}
+
+/* Modifies background color for the business sector variation */
+.cta-strip-box.business-variant-box {
+    background-color: #0f172a; /* Deep Navy */
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+}
+
+.cta-strip-text h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.cta-strip-text p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Contrast button style modification for dark/saturated backgrounds */
+.btn-primary.light-btn {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 14px 28px;
+    white-space: nowrap; /* Prevents text from wrapping inside narrow flex-boxes */
+}
+
+.btn-primary.light-btn:hover {
+    background-color: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Make Business CTA button change appropriately */
+.business-variant-box .btn-primary.light-btn {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+.business-variant-box .btn-primary.light-btn:hover {
+    background-color: #047857;
+}
+
+/* ==========================================================================
+   24. CTA STRIP RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .cta-strip-box {
+        flex-direction: column; /* Stacks components on mobile viewports */
+        text-align: center;
+        padding: 40px 30px;
+        gap: 24px;
+    }
+    
+    .cta-strip-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-strip-text p {
+        font-size: 0.95rem;
+    }
+    
+    .cta-strip-action, .btn-primary.light-btn {
+        width: 100%;
+    }
+}
+
+
+
+/* *************************FOOTR******************************* */
+
+
+/* ==========================================================================
+   27. GLOBAL MULTI-PAGE COMPREHENSIVE FOOTER STYLES
+   ========================================================================== */
+.global-footer {
+     background-color: #0f172a;
+     /* Deep contrast dark navy background layout */
+    color: #94a3b8;
+    /* background-color: #022c22; */
+    padding: 80px 0 30px 0;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-primary-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr; /* Optimized variable width setup */
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Brand Meta Styling */
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.footer-bio {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 24px;
+    max-width: 300px;
+}
+
+/* Social Icon Blocks Styling */
+.footer-social-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #1e293b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.social-link-icon:hover {
+    background-color: #059669; /* Turns bright emerald green on cursor over actions */
+    transform: translateY(-3px);
+}
+
+/* Navigation Lists Layout Elements */
+.footer-links-column h4 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-nav-list a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+.footer-nav-list a:hover {
+    color: #34d399; /* Smooth highlight color transformation */
+    padding-left: 4px; /* Subtle sliding movement interaction on focus selection */
+}
+
+/* Plain non-clickable detail lists text alignment fixes */
+.footer-nav-list.static-contacts li {
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   28. FOOTER BOTTOM PANEL COMPLIANCE STRIP
+   ========================================================================== */
+.footer-bottom-bar {
+    border-top: 1.5px solid #1e293b;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color:  #94a3b8;
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-legal-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+   
+     color: #64748b;
+}
+
+
+
+/* ==========================================================================
+   29. FULL FOOTER MOBILE SCREEN ADAPTIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 968px) {
+    .footer-primary-grid {
+        grid-template-columns: repeat(2, 1fr); /* Collapses into a 2x2 grid framework for tablets */
+        gap: 40px 30px;
+    }
+}
+
+@media (max-width: 640px) {
+    .global-footer {
+        padding: 50px 0 30px 0;
+    }
+
+    .footer-primary-grid {
+        grid-template-columns: 1fr; /* Stacks completely into single wide rows for mobile viewports */
+        gap: 32px;
+    }
+
+    .footer-links-column h4 {
+        margin-bottom: 14px; /* Tightens header spacing targets on phone browsers */
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column-reverse; /* Places copyright under the text lists for symmetry */
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-legal-links {
+        flex-direction: column; /* Legal links row block becomes individual easy-tap rows */
+        gap: 12px;
+    }
+}

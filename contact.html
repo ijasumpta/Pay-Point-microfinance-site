@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | PayPoint</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">P</span><span class="logo-accent"><span class="pay">Pay</span>Point</span>
+            </a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Banking ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="personal.html">Personal Banking</a></li>
+                            <li><a href="business.html">Business Banking</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Company ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="security.html">Security</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <div class="nav-cta"><a href="#" class="btn-primary">Open Account</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="inner-hero">
+            <div class="inner-hero-container">
+                <span class="breadcrumb">Home / Support / Contact</span>
+                <h1>We are Here to Help You</h1>
+                <p>Have specific operational inquiries? Drop a message directly to our central response team.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT INTERACTION LAYOUT -->
+        <section class="contact-section">
+            <div class="section-container grid-2">
+                <!-- Help Form -->
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <h3>Send an Inquiry</h3>
+                    <div class="form-group">
+                        <label>Your Full Name</label>
+                        <input type="text" placeholder="Enter your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message Content</label>
+                        <textarea rows="5" placeholder="Type Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="border:none; width:100%; cursor:pointer;">Submit Ticket</button>
+                </form>
+
+                <!-- Help Channels -->
+                <div class="contact-channels">
+                    <h3>Direct Channels</h3>
+                    <div class="channel-item">
+                        <strong>📍 Central HQ Office</strong>
+                        <p>75 Financial District Blvd, Phase 2, Port Harcourt, Rivers State, Nigeria.</p>
+                    </div>
+                    <div class="channel-item">
+                        <strong>📞 Telephone Hotline</strong>
+                        <p>+234 (0) 800-APEX-TRUST</p>
+                    </div>
+                    <div class="channel-item">
+                        <strong>✉️ Digital Support Mail</strong>
+                        <p>support@apextrustbank.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
+        <section class="faq-section">
+            <div class="section-container">
+                
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tagline">Have Questions?</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to our most common support queries regarding micro-loans, security thresholds, and savings goals.</p>
+                </div>
+
+                <!-- Pure HTML/CSS Accordion Grid -->
+                <div class="faq-accordion-container">
+                    
+                    <!-- FAQ Item 1 -->
+                    <details class="faq-item">
+                        <summary class="faq-question">How long does it take to get a micro-loan approved? <span>+</span></summary>
+                        <div class="faq-answer">
+                            <p>Most consumer micro-loans and SME capital lines are processed dynamically through our app within 10 minutes. Once your basic registration data matches background metrics, tokens disburse straight to your digital wallet immediately.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 2 -->
+                    <details class="faq-item">
+                        <summary class="faq-question">What identification documents do I need to register? <span>+</span></summary>
+                        <div class="faq-answer">
+                            <p>To register for an ApexTrust wallet account, you only need an active smartphone number, valid government identity metrics (such as a BVN, NIN, or Voter Card depending on regional requirements), and a clear selfie photo for biometric verification.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 3 -->
+                    <details class="faq-item">
+                        <summary class="faq-question">Are there monthly maintenance fees on checking wallets? <span>+</span></summary>
+                        <div class="faq-answer">
+                            <p>No, standard accounts feature zero maintenance overheads. ApexTrust-to-ApexTrust transfers are completely free forever, allowing micro-merchants and individuals to exchange everyday currency blocks efficiently.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 4 -->
+                    <details class="faq-item">
+                        <summary class="faq-question">How secure is my money with ApexTrust Mobile Bank? <span>+</span></summary>
+                        <div class="faq-answer">
+                            <p>Your institutional assets are fully licensed under sovereign regulations and backed by structural NDIC insurance caps up to statutory limits. Furthermore, all software pipeline operations run on modern, military-grade end-to-end encryption frameworks.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 5 -->
+                    <details class="faq-item">
+                        <summary class="faq-question">How does the High-Yield Savings Vault work? <span>+</span></summary>
+                        <div class="faq-answer">
+                            <p>Our automated high-yield vaults allow you to set fixed deposit targets or daily micro-contributions toward specific milestones (like restocking store inventory). You can lock funds for fixed tenures to earn up to a 12% Annual Percentage Yield (APY).</p>
+                        </div>
+                    </details>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- MAP & OFFICE LOCATIONS SECTION -->
+        <section class="map-section">
+            <div class="section-container">
+                <div class="map-header">
+                    <h2>Visit Our Digital Experience Centers</h2>
+                    <p>Want face-to-face support or account onboarding assistance? Drop by any of our physical branches across regional commercial zones.</p>
+                </div>
+                
+                <div class="map-grid-container">
+                    <!-- Embedded Responsive Map Iframe Component -->
+                    <div class="map-iframe-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.7335759160533!2d6.998493175865243!3d4.815858040713781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069ced182b82e21%3A0xc3fa595e8ebbe3be!2sPort%20Harcourt%20Financial%20District!5e0!3m2!1sen!2sng!4v1710000000000!5m2!1sen!2sng" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <!-- Alternate Regional Hub Coordinates -->
+                    <div class="alternate-hubs">
+                        <div class="hub-card">
+                            <h4>🇳🇬 Lagos Island Tech Hub</h4>
+                            <p>Plot 12, Marina Financial Street, Victoria Island, Lagos State.</p>
+                            <span>Open Mon - Fri (8am - 4pm)</span>
+                        </div>
+                        <div class="hub-card">
+                            <h4>🇳🇬 Abuja Regulatory Office</h4>
+                            <p>Capital plaza, Third Floor, Central Business District, Abuja FCT.</p>
+                            <span>Open Mon - Fri (8am - 4pm)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    
+<!-- GLOBAL CORE SITE FOOTER -->
+    <footer class="global-footer">
+        <div class="section-container">
+            
+            <!-- Master Grid Layer -->
+            <div class="footer-primary-grid">
+                
+                <!-- Brand Column -->
+                <div class="footer-brand-column">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">P</span> PayPoint
+                    </a>
+                    <p class="footer-bio">Empowering everyday traders, individuals, and growing businesses with transparent high-yield savings pipelines and secure micro-loan liquidity lines.</p>
+                    
+                    <!-- Unified Social Media Quick Links -->
+                    <div class="footer-social-wrapper">
+                        <a href="https://www.facebook.com/share/1EgiQ6AYQF/" class="social-link-icon" aria-label="Visit Facebook Page"><i class="fa-brands fa-facebook-f"></i></i></a>
+                        <a href="https://x.com/AsumptaIjeoma" class="social-link-icon" aria-label="Follow Twitter Profile"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/asumpta-ijeoma-8942883aa" class="social-link-icon" aria-label="Connect on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/i.jasumpta?igsh=MWZ2M2FlbXhqamN2MA==" class="social-link-icon" aria-label="Follow Instagram Feed"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Column 1: Core Institutional Links -->
+                <div class="footer-links-column">
+                    <h4>Company</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="index.html">Home Dashboard</a></li>
+                        <li><a href="about.html">About Our Mission</a></li>
+                        <li><a href="security.html">Security Thresholds</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Column 2: Digital Retail Frameworks -->
+                <div class="footer-links-column">
+                    <h4>Banking Services</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="personal.html">Personal Wallets</a></li>
+                        <li><a href="business.html">SME Business Capital</a></li>
+                        <li><a href="personal.html">High-Yield Vaults</a></li>
+                        <li><a href="business.html">Merchant POS Checkout</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Column 3: Direct Contact Indicators -->
+                <div class="footer-links-column">
+                    <h4>Support Hub</h4>
+                    <ul class="footer-nav-list static-contacts">
+                        <li><i class="fa-solid fa-map-pin"></i> <span>1 Adekunle Fajuyi Rd, Ibadan, Nigeria</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>support@PayPointbank.com</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>+234 (0) 800-PAY-BANK</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal & Compliance Strip -->
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 PayPoint Mobile Microfinance Bank. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Framework</a>
+                    <a href="#">Terms of Deployment</a>
+                    <a href="#">NDIC Insured Regulatory Caps</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>
