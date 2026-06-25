@@ -31,5 +31,6 @@ Write an informational page highlighting app security features like data encrypt
 
 Create a customer contact page with a standard submission form. Under the form, build a responsive FAQ section using native HTML  and  accordion tags with an animated '+' icon. End the page with a full-width embedded Google Maps iframe container.
 
-Universal Footer Component
+  Prompt for footer
+  
 Build a universal site footer styled in deep forest green (#022c22). On desktop, split it into 4 columns: Brand bio + social media icons, Company page links, Banking product links, and Office contact info. On mobile, collapse it into clean, vertically stacked rows.
